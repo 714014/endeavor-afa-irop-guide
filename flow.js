@@ -175,7 +175,6 @@ const FLOW = {
     options: [
       { label: "Home Reserve", next: "homeReserve" },
       { label: "Airport Reserve", next: "airportReserve" },
-      { label: "Hotel", next: "hotelReserve" },
     ],
     breadcrumb: "Reserve",
   },
