@@ -54,10 +54,9 @@ const FLOW = {
   checkAssignment: {
     id: "checkAssignment",
     title: "Check for New Assignment",
-    prompt: "Open CrewTrac and review your new assignment.",
+    prompt: "Open CrewTrac and check for a new assignment.",
     type: "info",
     steps: [
-      "Check CrewTrac for a new assignment",
       "If no assignment, 120 minute clock begins",
     ],
     continueLabel: "I have an assignment",
