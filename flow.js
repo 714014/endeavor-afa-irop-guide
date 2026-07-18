@@ -83,9 +83,10 @@ const FLOW = {
     prompt: "Are you contactable?",
     type: "choice",
     examples: [
-      "Manager instructed you to call Crew Scheduling",
-      "Crew Scheduling contacted you",
-      "ACARS message received",
+      "Are you on Home Reserve?",
+      "Are you on Airport Reserve?",
+      "Are you Time Available (AVL)?",
+      "Did a manager meet you or was an ACARS message sent?",
     ],
     options: [
       { label: "Yes — I am contactable", next: "acceptAssignment" },
