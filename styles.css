@@ -1,0 +1,334 @@
+:root {
+  --ink: #0f1c2e;
+  --ink-muted: #3d4f66;
+  --surface: rgba(255, 252, 248, 0.92);
+  --line: rgba(15, 28, 46, 0.12);
+  --accent: #0b5fff;
+  --accent-hover: #0847c7;
+  --accent-soft: rgba(11, 95, 255, 0.1);
+  --emphasis: #b45309;
+  --emphasis-bg: rgba(180, 83, 9, 0.12);
+  --danger-soft: #7a1f2b;
+  --radius: 12px;
+  --shadow: 0 18px 50px rgba(15, 28, 46, 0.12);
+  --font-sans: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-display: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: var(--font-sans);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(11, 95, 255, 0.18), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(180, 83, 9, 0.14), transparent 50%),
+    linear-gradient(165deg, #e8eef8 0%, #f7f3ec 45%, #dfe8f4 100%);
+  background-attachment: fixed;
+  line-height: 1.45;
+}
+
+.app {
+  width: min(640px, 100%);
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 1.25rem 1.1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 0.85rem;
+}
+
+.brand-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.brand-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 4.2vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.45rem;
+  min-height: 1.25rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.crumb-sep {
+  opacity: 0.45;
+}
+
+.crumb-current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.app-main {
+  flex: 1;
+}
+
+.screen {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 4px);
+  box-shadow: var(--shadow);
+  padding: 1.35rem 1.2rem 1.4rem;
+  animation: fadeIn 180ms ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.screen-title {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 4.2vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.prompt {
+  margin: 0 0 1rem;
+  color: var(--ink-muted);
+  font-size: 1.05rem;
+}
+
+.examples {
+  margin: 0 0 1.1rem;
+  padding: 0.85rem 0.95rem;
+  background: var(--accent-soft);
+  border-radius: var(--radius);
+}
+
+.examples-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+}
+
+.examples ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.examples li + li {
+  margin-top: 0.25rem;
+}
+
+.step-list {
+  margin: 0 0 1.15rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: steps;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.step-list li {
+  counter-increment: steps;
+  position: relative;
+  padding: 0.85rem 0.95rem 0.85rem 3rem;
+  background: rgba(15, 28, 46, 0.04);
+  border-radius: var(--radius);
+  font-size: 1.02rem;
+  font-weight: 500;
+}
+
+.step-list li::before {
+  content: counter(steps);
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.55rem;
+  height: 1.55rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.emphasis {
+  color: var(--danger-soft);
+  background: var(--emphasis-bg);
+  padding: 0.05em 0.3em;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.continue-row {
+  margin-top: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.done-label {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.25;
+  padding: 0.95rem 1.1rem;
+  cursor: pointer;
+  transition: background 140ms ease, transform 140ms ease, opacity 140ms ease;
+  text-align: left;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.btn-choice {
+  background: #fff;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+  box-shadow: 0 1px 0 rgba(15, 28, 46, 0.04);
+}
+
+.btn-choice:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.btn-secondary {
+  background: rgba(15, 28, 46, 0.08);
+  color: var(--ink);
+  text-align: center;
+  padding: 0.7rem 0.95rem;
+  font-size: 0.95rem;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(15, 28, 46, 0.14);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-muted);
+  text-align: center;
+  padding: 0.7rem 0.95rem;
+  font-size: 0.95rem;
+}
+
+.btn-ghost:hover {
+  color: var(--ink);
+  background: rgba(15, 28, 46, 0.06);
+}
+
+.app-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.nav-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.disclaimer {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+  .app {
+    padding: 2rem 1.25rem 2.25rem;
+  }
+
+  .brand-logo {
+    height: 48px;
+  }
+
+  .screen {
+    padding: 1.75rem 1.6rem 1.7rem;
+  }
+}

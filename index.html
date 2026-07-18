@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Endeavor AFA IROP Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div class="brand">
+          <img
+            class="brand-logo"
+            src="images/afa-logo-placeholder.png.webp"
+            alt="AFA"
+          />
+          <p class="brand-name">Endeavor AFA IROP Guide</p>
+        </div>
+        <nav class="breadcrumb" id="breadcrumb" aria-label="Progress"></nav>
+      </header>
+
+      <main class="app-main" id="app" aria-live="polite"></main>
+
+      <footer class="app-footer">
+        <div class="nav-controls">
+          <button type="button" class="btn btn-secondary" id="btn-back" disabled>
+            Back
+          </button>
+          <button type="button" class="btn btn-ghost" id="btn-restart">
+            Start over
+          </button>
+        </div>
+        <p class="disclaimer">
+          Follow Crew Scheduling instructions and company policy if they conflict
+          with this guide.
+        </p>
+      </footer>
+    </div>
+
+    <script src="flow.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
