@@ -303,6 +303,7 @@ const FLOW = {
       "Call Crew Scheduling",
       "Remain at the airport for 120 minutes",
       "Revert to Home status for the remainder of Time Available",
+      "If called, standard call-out time applies"
     ],
     emphasis: ["120 minutes"],
     breadcrumb: "LHTA",
@@ -317,6 +318,7 @@ const FLOW = {
       "Remain at the airport for 120 minutes",
       "Proceed to hotel",
       "Revert to Hotel status for the remainder of Time Available",
+      "If called, report to the airport ASAP"
     ],
     emphasis: ["120 minutes"],
     breadcrumb: "LHTA",
