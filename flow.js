@@ -300,7 +300,6 @@ const FLOW = {
     title: "Airport — In Base",
     type: "actions",
     steps: [
-      "Call Crew Scheduling",
       "Remain at the airport for 120 minutes",
       "Revert to Home status for the remainder of Time Available",
       "If called, standard call-out time applies"
@@ -314,7 +313,6 @@ const FLOW = {
     title: "Airport — Outstation",
     type: "actions",
     steps: [
-      "Call Crew Scheduling",
       "Remain at the airport for 120 minutes",
       "Proceed to hotel",
       "Revert to Hotel status for the remainder of Time Available",
