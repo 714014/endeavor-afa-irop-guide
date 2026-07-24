@@ -183,6 +183,11 @@ body {
   border-radius: var(--radius);
   font-size: 1.02rem;
   font-weight: 500;
+  overflow: hidden;
+}
+
+.step-list li:has(.step-image-btn) {
+  padding-bottom: 0;
 }
 
 .step-list li::before {
@@ -201,15 +206,35 @@ body {
   font-weight: 700;
 }
 
+.step-image-btn {
+  display: block;
+  width: calc(100% + 0.95rem + 3rem);
+  margin: 0.75rem 0 0 -3rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
 .step-image {
   display: block;
   width: 100%;
-  max-height: 220px;
-  margin-top: 0.75rem;
-  border-radius: calc(var(--radius) - 4px);
-  border: 1px solid var(--line);
-  object-fit: contain;
-  background: #fff;
+  max-height: min(240px, 42vh);
+  object-fit: cover;
+  object-position: left bottom;
+  border-radius: 0;
+  background: transparent;
+}
+
+.step-image-hint {
+  display: block;
+  padding: 0.45rem 0.95rem 0.65rem 3rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-muted);
 }
 
 .emphasis {
@@ -329,6 +354,61 @@ body {
   line-height: 1.4;
 }
 
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(0.75rem, env(safe-area-inset-top))
+    max(0.75rem, env(safe-area-inset-right))
+    max(0.75rem, env(safe-area-inset-bottom))
+    max(0.75rem, env(safe-area-inset-left));
+  background: rgba(8, 14, 24, 0.88);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 5.5rem);
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: max(0.65rem, env(safe-area-inset-top));
+  right: max(0.65rem, env(safe-area-inset-right));
+  z-index: 1001;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ink);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.lightbox-close:active {
+  transform: scale(0.96);
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
 @media (min-width: 640px) {
   .app {
     padding: 2rem 1.25rem 2.25rem;
@@ -340,5 +420,13 @@ body {
 
   .screen {
     padding: 1.75rem 1.6rem 1.7rem;
+  }
+
+  .step-image {
+    max-height: min(280px, 40vh);
+  }
+
+  .lightbox-image {
+    max-height: calc(100dvh - 4rem);
   }
 }

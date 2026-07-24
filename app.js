@@ -3,9 +3,13 @@
   const breadcrumbEl = document.getElementById("breadcrumb");
   const btnBack = document.getElementById("btn-back");
   const btnRestart = document.getElementById("btn-restart");
+  const lightboxEl = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const lightboxClose = document.getElementById("lightbox-close");
 
   let currentId = "start";
   const history = [];
+  let lightboxTrigger = null;
 
   function escapeHtml(text) {
     return String(text)
@@ -34,16 +38,46 @@
         const text = typeof step === "string" ? step : step.text;
         const image =
           typeof step === "object" && step.image
-            ? `<img
-                class="step-image"
-                src="${escapeHtml(step.image)}"
-                alt="${escapeHtml(step.imageAlt || "")}"
-              />`
+            ? `<button
+                type="button"
+                class="step-image-btn"
+                data-lightbox-src="${escapeHtml(step.image)}"
+                data-lightbox-alt="${escapeHtml(step.imageAlt || "")}"
+              >
+                <img
+                  class="step-image"
+                  src="${escapeHtml(step.image)}"
+                  alt="${escapeHtml(step.imageAlt || "")}"
+                />
+                <span class="step-image-hint">Tap to enlarge</span>
+              </button>`
             : "";
         return `<li>${emphasizeStep(text, node.emphasis)}${image}</li>`;
       })
       .join("");
     return `<ol class="step-list">${items}</ol>`;
+  }
+
+  function openLightbox(src, alt, trigger) {
+    if (!lightboxEl || !lightboxImage) return;
+    lightboxTrigger = trigger || null;
+    lightboxImage.src = src;
+    lightboxImage.alt = alt || "";
+    lightboxEl.hidden = false;
+    document.body.classList.add("lightbox-open");
+    lightboxClose?.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightboxEl || lightboxEl.hidden) return;
+    lightboxEl.hidden = true;
+    lightboxImage.removeAttribute("src");
+    lightboxImage.alt = "";
+    document.body.classList.remove("lightbox-open");
+    if (lightboxTrigger) {
+      lightboxTrigger.focus();
+      lightboxTrigger = null;
+    }
   }
 
   function renderExamples(node) {
@@ -155,6 +189,12 @@
       btn.addEventListener("click", () => goTo(btn.dataset.next));
     });
 
+    appEl.querySelectorAll("[data-lightbox-src]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        openLightbox(btn.dataset.lightboxSrc, btn.dataset.lightboxAlt, btn);
+      });
+    });
+
     const doneRestart = document.getElementById("btn-done-restart");
     if (doneRestart) {
       doneRestart.addEventListener("click", restart);
@@ -181,6 +221,23 @@
 
   btnBack.addEventListener("click", goBack);
   btnRestart.addEventListener("click", restart);
+
+  lightboxClose?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  lightboxEl?.addEventListener("click", (e) => {
+    if (e.target === lightboxEl) closeLightbox();
+  });
+
+  lightboxImage?.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
 
   render("start");
 })();
