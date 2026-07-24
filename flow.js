@@ -57,7 +57,7 @@ const FLOW = {
     prompt: "Open CrewTrac and check for a new assignment.",
     type: "info",
     steps: [
-      "If no new assignment in 60min, call or email Crew Services.",
+      "If no new assignment in 60 minutes, call or email Crew Services.",
     ],
     continueLabel: "I have an assignment",
     next: "assignmentType",
