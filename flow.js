@@ -51,7 +51,6 @@ const FLOW = {
     type: "info",
     steps: [
       "Wait until status shows Processed",
-      "Then check CrewTrac for a new assignment",
     ],
     continueLabel: "Status is Processed",
     next: "checkAssignment",
