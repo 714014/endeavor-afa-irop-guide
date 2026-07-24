@@ -79,7 +79,7 @@ const FLOW = {
       { label: "Flying Replaced", next: "flyingContactable" },
       { label: "Released to Rest", next: "hotelAssigned" },
       { label: "Reserve Assignment", next: "reserveLocation" },
-      { label: "Other Status", next: "otherStatus" },
+      { label: "Time Available (Line Holder)", next: "lhtaLocation" },
     ],
     breadcrumb: "Assignment",
   },
@@ -243,19 +243,7 @@ const FLOW = {
     breadcrumb: "Reserve",
   },
 
-  // --- Other Status ---
-  otherStatus: {
-    id: "otherStatus",
-    title: "Other Status",
-    prompt: "Line Holder Time Available or Reserve Assignment?",
-    type: "choice",
-    options: [
-      { label: "Line Holder Time Available", next: "lhtaLocation" },
-      { label: "Reserve Assignment", next: "reserveLocation" },
-    ],
-    breadcrumb: "Other",
-  },
-
+  // --- Line Holder Time Available ---
   lhtaLocation: {
     id: "lhtaLocation",
     title: "Line Holder Time Available",
