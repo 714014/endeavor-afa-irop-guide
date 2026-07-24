@@ -57,7 +57,7 @@ const FLOW = {
     prompt: "Open CrewTrac and check for a new assignment.",
     type: "info",
     steps: [
-      "If no new assignment in 60min, call or email CS.",
+      "If no new assignment in 60min, call or email Crew Services.",
     ],
     continueLabel: "I have an assignment",
     next: "assignmentType",
@@ -172,7 +172,7 @@ const FLOW = {
   reserveLocation: {
     id: "reserveLocation",
     title: "Reserve Assignment",
-    prompt: "What is your current location status?",
+    prompt: "What is new Reserve Assignment",
     type: "choice",
     options: [
       { label: "Home Reserve", next: "homeReserve" },
