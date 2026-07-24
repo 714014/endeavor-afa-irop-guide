@@ -19,7 +19,7 @@ const FLOW = {
     title: "Verify Cancellation",
     prompt: "Confirm the cancellation in both systems before proceeding.",
     type: "info",
-    steps: ["Verify cancellation in CrewTrac", "Verify cancellation on Delta.com"],
+    steps: ["Verify cancellation on cancellation report", "Verify cancellation on Delta.com"],
     continueLabel: "Continue",
     next: "reportStatus",
     breadcrumb: "Verify",
@@ -57,7 +57,7 @@ const FLOW = {
     prompt: "Open CrewTrac and check for a new assignment.",
     type: "info",
     steps: [
-      "If no assignment, 120 minute clock begins",
+      "If no new assignment in 60min, call or email CS.",
     ],
     continueLabel: "I have an assignment",
     next: "assignmentType",
