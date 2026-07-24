@@ -151,20 +151,39 @@ const FLOW = {
     ],
     emphasis: ["within 30 minutes"],
     continueLabel: "Hotel has been assigned",
-    next: "restAtHotel",
+    next: "restFromHotelQuestion",
     breadcrumb: "Rest",
   },
 
-  restAtHotel: {
-    id: "restAtHotel",
+  restFromHotelQuestion: {
+    id: "restFromHotelQuestion",
     title: "Rest After Hotel Assignment",
+    prompt: "Do you have 10 hours of rest from the hotel being assigned?",
+    type: "choice",
+    options: [
+      { label: "Yes", next: "proceedToHotel" },
+      { label: "No", next: "noRestCallCS" },
+    ],
+    breadcrumb: "Rest",
+  },
+
+  proceedToHotel: {
+    id: "proceedToHotel",
+    title: "Proceed to Hotel",
+    type: "actions",
+    steps: ["Proceed to hotel"],
+    breadcrumb: "Rest",
+  },
+
+  noRestCallCS: {
+    id: "noRestCallCS",
+    title: "Contact Crew Services",
     type: "actions",
     steps: [
-      "Start 10-hour rest from hotel assignment time",
-      "Send proof of hotel assignment time to Crew Scheduling",
-      "Request rest reset",
+      "Call Crew Services to establish a new rest period",
+      "If long wait time: send email to Crew Services to start 10-hour rest from hotel notification time",
     ],
-    emphasis: ["10-hour rest", "hotel assignment time"],
+    emphasis: ["10-hour rest", "hotel notification time"],
     breadcrumb: "Rest",
   },
 
