@@ -108,7 +108,7 @@ const FLOW = {
     title: "Accept Assignment",
     type: "actions",
     steps: [
-      "Accept assignment via CrewTrac or by calling Crew Scheduling",
+      "Accept assignment via CrewTrac or by calling Crew Services",
       "Proceed to the gate",
     ],
     breadcrumb: "Flying",
@@ -153,7 +153,7 @@ const FLOW = {
     type: "info",
     steps: [
       "Monitor API for a hotel assignment",
-      "Contact Crew Scheduling if no hotel is assigned within 30 minutes",
+      "Contact Crew Services if no hotel is assigned within 30 minutes",
     ],
     emphasis: ["within 30 minutes"],
     continueLabel: "Hotel has been assigned",
@@ -237,7 +237,7 @@ const FLOW = {
     steps: [
       "Remain at the hotel",
       "If contactable, remain contactable until the assignment ends or you are released to rest",
-      "If called by Crew Scheduling: proceed to the airport ASAP",
+      "If called by Crew Services: proceed to the airport ASAP",
     ],
     emphasis: ["proceed to the airport ASAP"],
     breadcrumb: "Reserve",
@@ -263,7 +263,7 @@ const FLOW = {
     type: "actions",
     steps: [
       "Remain at home",
-      "Answer if Crew Scheduling calls during Time Available",
+      "Answer if Crew Services calls during Time Available",
       "Callout time applies",
     ],
     emphasis: ["Callout time applies"],
@@ -276,7 +276,7 @@ const FLOW = {
     type: "actions",
     steps: [
       "Remain at the hotel",
-      "Answer if Crew Scheduling calls during Time Available",
+      "Answer if Crew Services calls during Time Available",
       "Proceed to the airport ASAP if contacted",
     ],
     emphasis: ["Proceed to the airport ASAP"],
