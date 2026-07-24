@@ -19,7 +19,14 @@ const FLOW = {
     title: "Verify Cancellation",
     prompt: "Confirm the cancellation in both systems before proceeding.",
     type: "info",
-    steps: ["Verify cancellation on the Cancel Flight Report on Endeavor Air Net", "Verify cancellation on Delta.com"],
+    steps: [
+      {
+        text: "Verify cancellation on the Cancel Flight Report on Endeavor Air Net",
+        image: "images/cancel-flight-report.jpg",
+        imageAlt: "Cancel Flight Report on Endeavor Air Net",
+      },
+      "Verify cancellation on Delta.com",
+    ],
     continueLabel: "Continue",
     next: "reportStatus",
     breadcrumb: "Verify",

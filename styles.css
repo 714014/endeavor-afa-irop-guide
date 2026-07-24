@@ -189,8 +189,7 @@ body {
   content: counter(steps);
   position: absolute;
   left: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0.95rem;
   width: 1.55rem;
   height: 1.55rem;
   display: grid;
@@ -200,6 +199,17 @@ body {
   color: #fff;
   font-size: 0.8rem;
   font-weight: 700;
+}
+
+.step-image {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  margin-top: 0.75rem;
+  border-radius: calc(var(--radius) - 4px);
+  border: 1px solid var(--line);
+  object-fit: contain;
+  background: #fff;
 }
 
 .emphasis {

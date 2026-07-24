@@ -30,7 +30,18 @@
   function renderSteps(node) {
     if (!node.steps?.length) return "";
     const items = node.steps
-      .map((step) => `<li>${emphasizeStep(step, node.emphasis)}</li>`)
+      .map((step) => {
+        const text = typeof step === "string" ? step : step.text;
+        const image =
+          typeof step === "object" && step.image
+            ? `<img
+                class="step-image"
+                src="${escapeHtml(step.image)}"
+                alt="${escapeHtml(step.imageAlt || "")}"
+              />`
+            : "";
+        return `<li>${emphasizeStep(text, node.emphasis)}${image}</li>`;
+      })
       .join("");
     return `<ol class="step-list">${items}</ol>`;
   }
